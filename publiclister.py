@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# on debian "apt-get install python-xlrd"
+# everywhere "pip install xlrd"
 import xlrd
 
 # opening the list document and loading the first sheet
