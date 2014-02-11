@@ -1,8 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# on debian "apt-get install python-xlrd"
-# everywhere "pip install xlrd"
+'''
+on debian "apt-get install python-xlrd"
+everywhere "pip install xlrd"
+'''
 import xlrd
 
 # opening the list document and loading the first sheet
@@ -17,10 +19,10 @@ current_row = 1
 while(current_row < rows):
 	# print sheet.row(current_row)
 	if (sheet.cell_type(current_row, 7) != 0) or (sheet.cell_type(current_row, 6) != 0):
-		print ("Year: " + str(sheet.cell_value(current_row, 5))),
+		print ("Year: " + str(sheet.cell_value(current_row, 5)).split(".")[0]),
 		print ("Type: " + sheet.cell_value(current_row, 6).encode('utf8')),
 		print ("Author: " + sheet.cell_value(current_row, 7).encode('utf8')),
-		print ("Title: " + sheet.cell_value(current_row, 12).encode('utf8'))
+		print ("Title: " + sheet.cell_value(current_row, 12).encode('utf8').replace('\n', '').replace('  ', ' ').replace('\"', ''))
 	else:
 		print "NEW YEAR"
 	current_row += 1
